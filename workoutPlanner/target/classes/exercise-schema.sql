@@ -1,0 +1,7 @@
+DROP TABLE `exercise`;
+
+CREATE TABLE exercise (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    time BIGINT NOT NULL
+);
