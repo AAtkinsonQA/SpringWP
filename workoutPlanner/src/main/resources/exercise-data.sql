@@ -1,6 +1,10 @@
 INSERT INTO `exercise`
-(`name`,
-`time`)
+(`day`,
+`name`,
+`time`,
+`reps`)
 VALUES
-('run',
-30);
+('monday',
+'run',
+30,
+8);

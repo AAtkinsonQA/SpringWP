@@ -33,6 +33,7 @@ public class ExerciseService {
 		Exercise oldExercise = this.repo.findById(id).get();
 		oldExercise.setName(exercise.getName());
 		oldExercise.setTime(exercise.getTime());
+		oldExercise.setReps(exercise.getReps());
 		return this.repo.save(oldExercise);
 	}
 
