@@ -6,9 +6,8 @@
    * [My Approach](#my-approach)
 * [Project Planning](#project-planning)
 * [Risk Assessment](#risk-assessment)
-* [Architecture](#architecture)
-   * [Database](#database)
-   * [Back end](#back-end)
+* [Database](#database)
+* [Back end](#back-end)
 * [Testing](#testing)
 * [Front End Design](#front-end-design)
 * [Future Improvements](#future-improvements)
@@ -21,6 +20,7 @@ Overall objective:
 Core Modules: Databases, Java SE, Spring Boot, Front-End Development.
 
 ### Requirements
+
 In addition to what has been set out in the brief, I am also required to include the following:
 * An agile scrum jira board
 * Clear documentation of the design phase, app architecture and risk assessment
@@ -56,20 +56,20 @@ The board has been designed such that elements of the project move from left to 
 * *Present Project*
 
 ## Risk Assessment
+
 The risk assessment for this project can be found in the screenshot below: 
 
 ![Risk Assessment](https://i.imgur.com/HN5OW8Y.png)
 
-## Architecture
+##Database
 
-###Database
 For my database I used an SQL server hosted by the Google Cloud Platform. A cloud database allows the user to save their timetables for later use. 
 
 I found SQL useful for managing my data in a table and using the commands to access certain data. For my MVP I used an h2 console however, this deleted the data when it stopped running so wouldn’t be viable for a finished product. GCP gave me this option but took much longer to get running so If I wanted to use my project as a product for customers, I would keep the cloud server up as much as possible and provide warning messages for scheduled times when it has to be taken down for maintenance.
 
 I used the postman application to test my database before my front-end was ready. This was useful for testing back-end functions and getting instant feedback with helpful error messages.
 
-###Back end
+##Back end
 
 The back-end of the application is coded in java in the SpringBoot text editor and follows best practices and design principles.
 
@@ -78,6 +78,7 @@ My code follows the OOP principles which fall within the scope of my project. Ob
 The spring text editor was effective in allowing me to create database functionality like a controller with minimal lines of code. I was able to specify the HTTP status codes using response entities in my controller. I could also write my CRUD functionality in a service file (following SOLID principles) and specify which attributes of my class were affected by certain methods. For example when the update method is called it is not able to modify the database ID of the exercise as this would cause my application to break.
 
 ## Testing
+
 The testing of my application involved Integration tests for overall performance and Unit tests for individual components of the application. I used a mixture of JUnit, SpringBoot and Mockito.
 
 [Testing files](https://i.imgur.com/STO1I8i.png)
@@ -95,7 +96,9 @@ Integration tests are real tests run on an isolated, pre-determined version of t
 10 JUnit tests were run, which returned a total code coverage of 98.3%
 
 [Test Coverage](https://i.imgur.com/wfBpl4I.png)
+
 ## Front End Design
+
 The front-end of the app is built with HTML, CSS and JavaScript and has an integrated API. It is largely functional and stable.
 
 The application and pairing website is not publicly available and is only accessible from my IP address. However, I designed the application with general use in mind so anyone can use it to create their own timetable.
@@ -107,7 +110,8 @@ Originally my exercises were printed without any day associated for my MVP. Howe
 My front end didn’t get as much attention as my back end in this project so if I had more time, I would make the website look prettier for customers.
 
 ## Future Improvements
-#####There are a number of improvements I would like to implement:
+
+There are a number of improvements I would like to implement:
 
 * In future, I would like to have a log-in feature which allows individual users to save their personal timetables. This would expand my number of SQL tables and  make the application more industry viable.
 * I would like to incorporate other OOP principles such as abstraction to expand my application’s functionality e.g. timetable class. 
