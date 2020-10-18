@@ -71,7 +71,7 @@ I used the postman application to test my database before my front-end was ready
 
 ## Back end
 
-The back-end of the application is coded in java in the SpringBoot text editor and follows best practices and design principles.
+The back end of the application is coded in java in the SpringBoot text editor and follows best practices and design principles.
 
 My code follows the OOP principles which fall within the scope of my project. Object orientated programming was intuitive for this project as the user will be interacting with exercises on a timetable. Therefore an exercise class was created and assigned the defining attributes with getters and setters to follow the encapsulation principle. 
 
@@ -85,7 +85,7 @@ The testing of my application involved Integration tests for overall performance
 
 ### Unit Tests
 
-Unit tests are performed by running each accessible function in isolation to one another, allowing for logic checks in order to highlight if any new additions or changes to old code will break or disrupt already working features. This is possible because of Mockito, which essentially replicates return types for functions are requiring external data, therefore any logic will still be applied, but you are testing whether or not things would function and return with expected values. A total of 4 unit tests were performed, all returning successful.
+Unit tests are performed by running each accessible function in isolation to one another, allowing for logic checks in order to highlight if any new additions or changes to old code will break or disrupt already working features. This is possible because of Mockito, which essentially replicates return types for functions requiring external data, therefore any logic will still be applied, but you are testing whether or not things would function and return with expected values. A total of 4 unit tests were performed, all returning successful.
 
 ### Integration Tests
 
