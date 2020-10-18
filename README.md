@@ -1,28 +1,16 @@
-# SpringWP
-
 # Workout Planner Timetable
-
-Here I'm just gonna put some hopefully-helpful example files and documents to give you an idea of what your fundamental project should look like. Note that I will not be putting my full project here as I don't wanna encourage anyone to just copy my work, but this'll probably be handy for reference.
-
-Below is the original README.md file for my fundamental project. It's probably a little OTT, I might cut some things down a bit, but you should get an idea of the sections you'll need to include for your own.
-
-### Resources:
-* Presentation: https://docs.google.com/presentation/d/1C0J2M6T_B_fquxnGgjRV6K_arbpyLvmv8f2Z-C-wYa0/edit?usp=sharing
-* Trello: https://trello.com/b/UfMXjN8h/constellations
-* Website: http://35.214.26.193:8001/
 
 ## Contents
 * [Brief](#brief)
-   * [Additional Requirements](#additional-requirements)
+   * [Requirements](#requirements)
    * [My Approach](#my-approach)
-* [Architecture](#architecture)
-   * [Database Structure](#database-structure)
-   * [CI Pipeline](#ci-pipeline)
-* [Project Tracking](#project-tracking)
+* [Project Planning](#project-planning)
 * [Risk Assessment](#risk-assessment)
+* [Architecture](#architecture)
+   * [Database](#database)
+   * [Back end](#back-end)
 * [Testing](#testing)
-* [Front-End Design](#front-end-design)
-* [Known Issues](#known-issues)
+* [Front End Design](#front-end-design)
 * [Future Improvements](#future-improvements)
 * [Authors](#authors)
 
@@ -32,14 +20,13 @@ Overall objective:
 
 Core Modules: Databases, Java SE, Spring Boot, Front-End Development.
 
-### Additional Requirements
+### Requirements
 In addition to what has been set out in the brief, I am also required to include the following:
 * An agile scrum jira board
 * Clear documentation of the design phase, app architecture and risk assessment
 * A java-based functional application that follows best practices and design principles
 * Test suites for the application, which will include automated tests for validation of the application
 * Meet an acceptable level of test coverage in backend and provide consistent reports and evidence.
-* A front-end website, created using HTML,CSS,JavaScript in VSC
 * Code integrated into a Version Control System and deployed to a cloud-based virtual machine (GCP)
 
 ### My Approach
@@ -52,117 +39,83 @@ To achieve this, I have decided to produce a simple exercise timetable app that 
 * Delete exercises
 * Update exercise attributes
 * View the updated timetable instantly after any exercises have been created, updated or deleted
-
-Additionally, I would like to allow the user to:
 * Refer to a database of exercises and store the attributes of their exercises
+
+## Project Planning
+
+A Jira, agile-scrum board was used to track the progress of the project (pictured below). You can find the link to this board here: https://aatkinson.atlassian.net/jira/software/projects/WOP/boards/2/roadmap
+
+![Jira Roadmap](https://i.imgur.com/VXdmhKq.png)
+![Jira Board](https://i.imgur.com/Z97X0EL.png)
+
+The board has been designed such that elements of the project move from left to right from their point of conception to being finished and fully implemented. Each card has an epic associated with it according to which section of the project it pertains. These epics are:
+* *Write Planning Documentation*
+* *Create A Functional Application*
+* *Apply Thorough Testing*
+* *Integrated Code In Several Environments*
+* *Present Project*
+
+## Risk Assessment
+The risk assessment for this project can be found in the screenshot below: 
+
+![Risk Assessment](https://i.imgur.com/HN5OW8Y.png)
+
+## Architecture
+
+###Database
+For my database I used an SQL server hosted by the Google Cloud Platform. A cloud database allows the user to save their timetables for later use. 
+
+I found SQL useful for managing my data in a table and using the commands to access certain data. For my MVP I used an h2 console however, this deleted the data when it stopped running so wouldn’t be viable for a finished product. GCP gave me this option but took much longer to get running so If I wanted to use my project as a product for customers, I would keep the cloud server up as much as possible and provide warning messages for scheduled times when it has to be taken down for maintenance.
+
+I used the postman application to test my database before my front-end was ready. This was useful for testing back-end functions and getting instant feedback with helpful error messages.
+
+###Back end
+
+The back-end of the application is coded in java in the SpringBoot text editor and follows best practices and design principles.
+
+My code follows the OOP principles which fall within the scope of my project. Object orientated programming was intuitive for this project as the user will be interacting with exercises on a timetable. Therefore an exercise class was created and assigned the defining attributes with getters and setters to follow the encapsulation principle. 
+
+The spring text editor was effective in allowing me to create database functionality like a controller with minimal lines of code. I was able to specify the HTTP status codes using response entities in my controller. I could also write my CRUD functionality in a service file (following SOLID principles) and specify which attributes of my class were affected by certain methods. For example when the update method is called it is not able to modify the database ID of the exercise as this would cause my application to break.
+
+## Testing
+The testing of my application involved Integration tests for overall performance and Unit tests for individual components of the application. I used a mixture of JUnit, SpringBoot and Mockito.
+
+[Testing files](https://i.imgur.com/STO1I8i.png)
+
+###Unit Tests
+
+Unit tests are performed by running each accessible function in isolation to one another, allowing for logic checks in order to highlight if any new additions or changes to old code will break or disrupt already working features. This is possible because of Mockito, which essentially replicates return types for functions are requiring external data, therefore any logic will still be applied, but you are testing whether or not things would function and return with expected values. A total of 4 unit tests were performed, all returning successful.
+
+###Integration Tests
+
+Integration tests are real tests run on an isolated, pre-determined version of the database, so that all requests and access to the database can be verified and tested for faults. A total of 4 integration tests were performed, all returning successful.
+
+####In total
+
+10 JUnit tests were run, which returned a total code coverage of 98.3%
+
+[Test Coverage](https://i.imgur.com/wfBpl4I.png)
+## Front End Design
+The front-end of the app is built with HTML, CSS and JavaScript and has an integrated API. It is largely functional and stable.
+
+The application and pairing website is not publicly available and is only accessible from my IP address. However, I designed the application with general use in mind so anyone can use it to create their own timetable.
+
+VSC was smooth and efficient. I was able to create my HTML file very fast with the autocomplete functionality. I used bootstrap with CSS to tidy up the aesthetics. JavaScript event listeners allowed me to append functions such as ‘delete’ to my exercises and respond to different types of user input e.g. ‘click’. I made use of the fetch function to transfer user data as a JSON to my back-end and catch any errors. HTML and CSS required more research than I expected which was useful to learn as I can judge those tasks better next time with an appropriate number of story points.
+
+Originally my exercises were printed without any day associated for my MVP. However, utilising ‘if’ statements and the ‘forEach’ function I could create an enumerated variable in my back-end called ‘DayOfWeek’ and print the exercises on the specific day of the week. After using python previously I found JS accessible and intuitive. If I wanted to add a new feature the versatility of the language gave me no barriers.
+
+My front end didn’t get as much attention as my back end in this project so if I had more time, I would make the website look prettier for customers.
+
+## Future Improvements
+#####There are a number of improvements I would like to implement:
+
+* In future, I would like to have a log-in feature which allows individual users to save their personal timetables. This would expand my number of SQL tables and  make the application more industry viable.
+* I would like to incorporate other OOP principles such as abstraction to expand my application’s functionality e.g. timetable class. 
+
+I would like to give the user more features so that they can:
 * Search for a particular exercise from a database of premade recommendations
 * Create several weeks instead of being limited to one week
 * Easily move exercises between days so new ones don't have to be created
-* Log in to a personal account so several users can have stored timetables
-
-## Architecture
-### Database Structure
-Pictured below is an entity relationship diagram (ERD) showing the structure of the database. Everything in green has been implemented into the app, while everything in red has not.
-
-![ERD][erd1]
-
-As shown in the ERD, the app models a many-to-many relationship between User entities and Observation entities using an association table. This allows the user to create observation posts and tag multiple users in the database with one observation. Similarly, many observations can therefore be associated with a user.
-
-### CI Pipeline
-![ci][ci]
-
-Pictured above is the continuous integration pipeline with the associated frameworks and services related to them. This pipeline allows for rapid and simple development-to-deployment by automating the integration process, i.e. I can produce code on my local machine and push it to GitHub, which will automatically push the new code to Jenkins via a webhook to be automatically installed on the cloud VM. From there, tests are automatically run and reports are produced. A testing environment for the app is also run in debugger mode, allowing for dynamic testing.
-
-This process is handled by a Jenkins 'pipeline' job with distinct build stages. The design of this type of job means that if a previous build stage fails, the job will fail altogether and provide you with detailed information as to where this occurred. The more modular you make this system, the easier it is to pinpoint where your code is failing. As pictured below, the four build stages are:
-* 'Checkout SCM' (pull code from Git respository)
-* 'Build' (would be more accurately named 'Installation' as Python doesn't require building, in the strictest sense)
-* 'Test' (run pytest, produce coverage report) 
-* 'Run' (start the flask-app service on the local VM, belonging to systemctl)
-
-![buildstages][buildstages]
-
-Once the app is considered stable, it is then pushed to a separate VM for deployment. This service is run using the Python-based HTTP web server Gunicorn, which is designed around the concept of 'workers' who split the CPU resources of the VM equally. When users connect to the server, a worker is assigned to that connection with their dedicated resources, allowing the server to run faster for each user.
-
-## Project Tracking
-Trello was used to track the progress of the project (pictured below). You can find the link to this board here: https://trello.com/b/UfMXjN8h/constellations
-
-![trello][trello]
-
-The board has been designed such that elements of the project move from left to right from their point of conception to being finished and fully implemented. Each card is also colour-coded according to which element of the project it pertains. From left to right, these lists are:
-* *Project Requirements*
-   A list of requirements set out in the brief in order for this to be a successful project.
-* *Project Resources*
-   List of relevant resources for quick access.
-* *User Stories*
-   Any functionality that is implemented into the project first begins as a user story. This keeps the development of every element of the web app focused on the user experience first.
-* *Planning*
-   The initial stages where a specific element (e.g. a block of code, a server, etc.) is being considered for implementation.
-* *In Progress*
-   Once the element has had any code written for it/exists in any way, it is placed in the 'in progress' list.
-* *Testing*
-   Once the element has been created, it moves to the 'testing' list, where its functionality is tested.
-* *Finished*
-   Any element that is considered to be finished (i.e. works according to its specification) lives in this list.
-
-## Risk Assessment
-The risk assessment for this project can be found in full here: https://docs.google.com/spreadsheets/d/1WfKQAjsBfErpQOywRmnZbCe6zw7yFxESFB8WhQd69Es/edit?usp=sharing
-
-Here's a quick screenshot:
-
-![RiskAssessment][riskassessment]
-
-## Testing
-pytest is used to run unit tests on the app. These are designed to assert that if a certain function is run, the output should be a known value. Jenkins produces console outputs (pictured below) that will inform the developer how many tests the code passed and which tests they failed.
-
-![pytestconsole][pytestconsole]
-
-pytest also produces a coverage report to show how much of the code in the app has been successfully tested. Jenkins automatically moves this report to the 'templates' folder so that it can be navigated to in a browser, as shown in the picture below.
-
-![coverage][coverage]
-
-## Front-End Design
-The front-end of the app is built with HTML, CSS and JavaScript and has one page. It is largely functional and stable.
-
-Home page:
-
-![homepage][createExample.png]
-
-They are then able to log in or register an account:
-
-![signup][signup]
-
-![login][login]
-
-Once they are logged in, they now have access to the 'Enter Observation' page and their account page:
-
-![homeloggedin][homeloggedin]
-
-Navigating to the 'Enter Observation' page allows them to post an observation and optionally tag up to two other observers, which will appear at the top of the home page:
-
-![enterobservation][enterobservation]
-
-![homenewobservation][homenewobservation]
-
-Navigating to the 'Account' page allows them to view their account details, update them and delete the account if they so desire. Deleting an account will also delete any observation they are associated with:
-
-![account][account]
-
-## Known Issues
-There are a few bugs with the current build of the app:
-* If a user attempts to change their email to another email that already exists in the database, the app will inexplicably delete the account entirely
-* Certain errors do not appear on the front end when they should, for example: if the user inputs incorrect login information, they should receive an 'Incorrect Username' or 'Incorrect Password' warning – instead the page merely reloads
-
-## Future Improvements
-There are a number of improvements I would like to implement (outside of current bugs):
-* Implementation of the stars and constellation database to allow you to tag these celestial objects in observations
-* Allow the user to tag an indefinite number of users in an observation, rather than a maximum of two
-* Filter observation posts by user, date, location, etc.
-* Aesthetic overhaul, to make the front-end both more appealing *and* more functional
-   * The aesthetics of an interface are important for the functionality of a web app, insofar as a user can only use functionality that they understand. Confusing aesthetic design will obscure the functionality of the app
-   * This would be implemented using CSS, the easiest approach being with Bootstrap
-* Implementation of other solar system objects that require realtime updates, e.g. planets whose locations in the sky are always changing
-   * This would probably be best achieved by referring to another publicly-available database
-* Users can customise their accounts more with profile pictures, add other users as friends, change the colour palette of the website, etc.
 
 ## Authors
-Harry Volker
+Albert Atkinson
