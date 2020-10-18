@@ -27,45 +27,38 @@ Below is the original README.md file for my fundamental project. It's probably a
 * [Authors](#authors)
 
 ## Brief
-The brief provided to us for this project sets the following out as its overall objective:
+Overall objective:
 "To create a CRUD application with utilisation of supporting tools, methodologies and technologies that encapsulate all core modules covered during training."
 
-In other words, I have been tasked with creating an application that utilises create, read, update and delete functions in order to function, such that I can demonstrate that I've learnt something over the last few weeks.
+Core Modules: Databases, Java SE, Spring Boot, Front-End Development.
 
 ### Additional Requirements
 In addition to what has been set out in the brief, I am also required to include the following:
-* A Trello board
-* A relational database, consisting of at least two tables that model a relationship
+* An agile scrum jira board
 * Clear documentation of the design phase, app architecture and risk assessment
-* A python-based functional application that follows best practices and design principles
+* A java-based functional application that follows best practices and design principles
 * Test suites for the application, which will include automated tests for validation of the application
-* A front-end website, created using Flask
-* Code integrated into a Version Control System which will be built through a CI server and deployed to a cloud-based virtual machine
+* Meet an acceptable level of test coverage in backend and provide consistent reports and evidence.
+* A front-end website, created using HTML,CSS,JavaScript in VSC
+* Code integrated into a Version Control System and deployed to a cloud-based virtual machine (GCP)
 
 ### My Approach
-To achieve this, I have decided to produce a simple stargazing companion app that must allow the user to do the following:
-* Create a user account (satisfies 'Create') that stores:
-   * *User Name*
-   * *First and Last Name*
-   * *Email*
-   * *Password*
-* Create posts of observations that they have made whilst stargazing (satisfies 'Create') with the following information:
-   * *Title* of the post
-   * *Author* of the post
-   * *Date and time* that the post was made
-   * *Observers* who also took part in this observation (essentially tagging other users in a post)
-   * *Location* at which the observation took place
-   * *Azimuth* coordinate of the observed object 
-   * *Altitude* coordinate of the observed object
-   * *Description* of the observation
-* View and update their account details (satisfies 'Read' and 'Update')
-* Delete their account (satisfies 'Delete')
-* Read observations they and other users have created (satisfies 'Read')
+To achieve this, I have decided to produce a simple exercise timetable app that allows the user to do the following:
+* Create exercises and assign them to a day of the week on the timetable with the following attributes:
+   * *Name* of the exercise
+   * *Length* of the exercise in minutes
+   * *Number* of sets
+* Select exercises which have been completed with a checkbox
+* Delete exercises
+* Update exercise attributes
+* View the updated timetable instantly after any exercises have been created, updated or deleted
 
 Additionally, I would like to allow the user to:
-* Refer to a database of stars and corresponding constellations with coordinate data
-* Add/delete records of stars and constellations in the database
-* Select every star that belongs to a certain constellation
+* Refer to a database of exercises and store the attributes of their exercises
+* Search for a particular exercise from a database of premade recommendations
+* Create several weeks instead of being limited to one week
+* Easily move exercises between days so new ones don't have to be created
+* Log in to a personal account so several users can have stored timetables
 
 ## Architecture
 ### Database Structure
@@ -128,11 +121,11 @@ pytest also produces a coverage report to show how much of the code in the app h
 ![coverage][coverage]
 
 ## Front-End Design
-The front-end of the app is rudimentary at this stage, as the front-end is built purely with very simple HTML. It is largely functional and stable, however.
+The front-end of the app is built with HTML, CSS and JavaScript and has one page. It is largely functional and stable.
 
-When the user navigates to the URL, they are directed to the home page:
+Home page:
 
-![homeloggedout][homeloggedout]
+![homepage][createExample.png]
 
 They are then able to log in or register an account:
 
