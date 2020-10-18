@@ -61,7 +61,7 @@ The risk assessment for this project can be found in the screenshot below:
 
 ![Risk Assessment](https://i.imgur.com/HN5OW8Y.png)
 
-##Database
+## Database
 
 For my database I used an SQL server hosted by the Google Cloud Platform. A cloud database allows the user to save their timetables for later use. 
 
@@ -69,7 +69,7 @@ I found SQL useful for managing my data in a table and using the commands to acc
 
 I used the postman application to test my database before my front-end was ready. This was useful for testing back-end functions and getting instant feedback with helpful error messages.
 
-##Back end
+## Back end
 
 The back-end of the application is coded in java in the SpringBoot text editor and follows best practices and design principles.
 
@@ -83,15 +83,15 @@ The testing of my application involved Integration tests for overall performance
 
 [Testing files](https://i.imgur.com/STO1I8i.png)
 
-###Unit Tests
+### Unit Tests
 
 Unit tests are performed by running each accessible function in isolation to one another, allowing for logic checks in order to highlight if any new additions or changes to old code will break or disrupt already working features. This is possible because of Mockito, which essentially replicates return types for functions are requiring external data, therefore any logic will still be applied, but you are testing whether or not things would function and return with expected values. A total of 4 unit tests were performed, all returning successful.
 
-###Integration Tests
+### Integration Tests
 
 Integration tests are real tests run on an isolated, pre-determined version of the database, so that all requests and access to the database can be verified and tested for faults. A total of 4 integration tests were performed, all returning successful.
 
-####In total
+#### In total
 
 10 JUnit tests were run, which returned a total code coverage of 98.3%
 
@@ -111,7 +111,7 @@ My front end didn’t get as much attention as my back end in this project so if
 
 ## Future Improvements
 
-There are a number of improvements I would like to implement:
+##### There are a number of improvements I would like to implement:
 
 * In future, I would like to have a log-in feature which allows individual users to save their personal timetables. This would expand my number of SQL tables and  make the application more industry viable.
 * I would like to incorporate other OOP principles such as abstraction to expand my application’s functionality e.g. timetable class. 
